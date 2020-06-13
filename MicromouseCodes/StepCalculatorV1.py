@@ -38,11 +38,11 @@ stepAngle= float(input("Enter the Step Angle"))
 diameter=int(input("Enter the Diameter"))
 distance=int(input("Enter the Distance to be covered"))
 
-distIn1Step = ((3.14*diameter)/stepAngle)/distance
-print(distIn1Step)
-steps = distance // distIn1Step
+distIn1Step = ((3.14*diameter)*stepAngle)/360
+print("Distance in One Step: "+str(distIn1Step))
+steps = distance / distIn1Step
 
-print(steps)
+print("Steps: "+str(steps))
 
 done = False
 count=0
