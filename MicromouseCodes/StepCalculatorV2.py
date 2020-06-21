@@ -14,7 +14,7 @@ clock = pygame.time.Clock()
 
 # Display the Background Image
 
-backImg = pygame.image.load("Images/Step Markings.png")
+backImg = pygame.image.load("Images/Step Markings.PNG")
 
 screen.blit(backImg,(0,0))
 
@@ -51,22 +51,19 @@ print("Steps: "+str(steps))
 #To Display Text: Wheel Diameter
 font = pygame.font.SysFont('Times New Roman', 35)
 text = font.render(str(diameter), False, (255, 255, 255))
-image1 = pygame.Surface((text.get_width()+1, text.get_height()+1))
-pygame.draw.rect(image1, (0, 0, 255), (1, 1, *text.get_size()))
+
 screen.blit(text, (1070, 165))
 
 #To Display Text: Step Angle
 font = pygame.font.SysFont('Times New Roman', 35)
 text = font.render(str(stepAngle), False, (255, 255, 255))
-image1 = pygame.Surface((text.get_width()+1, text.get_height()+1))
-pygame.draw.rect(image1, (0, 0, 255), (1, 1, *text.get_size()))
+
 screen.blit(text, (1070, 230))
 
 #To Display Text: Steps
 font = pygame.font.SysFont('Times New Roman', 35)
 text = font.render(str(round(distance,3)), False, (255, 255, 255))
-image1 = pygame.Surface((text.get_width()+1, text.get_height()+1))
-pygame.draw.rect(image1, (0, 0, 255), (1, 1, *text.get_size()))
+
 screen.blit(text, (1070, 295))
 #------------------------------------------------------------
 
@@ -97,8 +94,7 @@ while not done:
                 done = True
 #------------------------------------------------------
                 
-    pos = (screen.get_width()//2, screen.get_height()//2)
-    pos = (200, 200)
+   
 
 # Check whether stepsCount has reached the number of steps calculated
     if count<steps: # If not reached then Rotate the wheel by 1 step angle
@@ -107,19 +103,13 @@ while not done:
        
         font = pygame.font.SysFont('Times New Roman', 35)
        
-        text = font.render(str(count+1), False, (255, 255, 255))
+        text = font.render(str(count+1), False, (255, 255, 255),(85,49,133))
         
-        # To Clear the previous number of Step Count
-        screen.fill(pygame.Color(85,49,133), (1070,495,*text.get_size()))
-        
-        #To Display new number
-        image1 = pygame.Surface((text.get_width()+1, text.get_height()+1))
-        pygame.draw.rect(image1, (0, 0, 255), (1, 1, *text.get_size()))
         screen.blit(text, (1070, 495))
         time.sleep(0.3)
         
         #To Rotate Wheel
-        rotator.blitRotate(screen, image, pos, (w//2,h//2), angle)
+        rotator.blitRotate(screen, image,(200,200),  angle)
         
         #Update StepAngle , StepCount and Distance Travelled
         angle -= stepAngle
@@ -131,13 +121,12 @@ while not done:
         
         #To Show Text: Distance Travelled
         font = pygame.font.SysFont('Times New Roman', 35)
-        text = font.render(str(distanceTravelled), False, (255, 255, 255))
+        text = font.render(str(distanceTravelled), False, (255, 255, 255),(85,49,133))
          
-        # To Clear the previous distance travelled value
-        screen.fill(pygame.Color(85,49,133), (1070,560,*text.get_size()))
+        # # To Clear the previous distance travelled value
+        # screen.fill(pygame.Color(85,49,133), (1070,560,*text.get_size()))
         
-        image1 = pygame.Surface((text.get_width()+1, text.get_height()+1))
-        pygame.draw.rect(image1, (0, 0, 255), (1, 1, *text.get_size()))
+       
         screen.blit(text, (1070, 560))
         pygame.display.flip()
         pygame.display.update()
@@ -148,25 +137,20 @@ while not done:
         
           # To Clear the previous status
         font = pygame.font.SysFont('Times New Roman', 45)
-        text = font.render("Travelling", False, (255, 0, 0))
+        text = font.render("Travelling", False, (204,204,204),(204,204,204))
         
-      
-        screen.fill(pygame.Color(204,204,204), (850,420,*text.get_size()))
-        
-        #Show the new status as Reached
-        text = font.render("Reached", False, (255, 0, 0))
-        image1 = pygame.Surface((text.get_width()+1, text.get_height()+1))
-        pygame.draw.rect(image1, (0, 0, 255), (1, 1, *text.get_size()))
+        screen.blit(text, (850, 420))
+       
+        # #Show the new status as Reached
+        text = font.render("Reached", False, (255, 0, 0),(204,204,204))
+       
         screen.blit(text, (850, 420))
         pygame.display.update()
         time.sleep(1)
         
     
 
-    # pygame.draw.line(screen, (0, 255, 0), (pos[0]-20, pos[1]), (pos[0]+20, pos[1]), 3)
-    # pygame.draw.line(screen, (0, 255, 0), (pos[0], pos[1]-20), (pos[0], pos[1]+20), 3)
-    # pygame.draw.circle(screen, (0, 255, 0), pos, 7, 0)
-
+   
         
 
 pygame.quit()
