@@ -21,7 +21,7 @@ def blitRotate(surf, image,pos, angle):
     pivot_move   = pivot_rotate - pivot
 
     # calculate the upper left origin of the rotated image
-    origin = (pos[0] - originPos[0] + min_box[0] - pivot_move[0]+140, pos[1] - originPos[1] - max_box[1] + pivot_move[1]+140)
+    origin = (pos[0] - originPos[0] + min_box[0] - pivot_move[0], pos[1] - originPos[1] - max_box[1] + pivot_move[1])
 
     # get a rotated image
     rotated_image = pygame.transform.rotate(image, angle)
